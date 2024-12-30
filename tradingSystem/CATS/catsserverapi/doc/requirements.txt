@@ -1,0 +1,37 @@
+该压缩包中包含CATS Service API发布件以demo示例。
+
+CATS Service API的发布件：
+	libs\ 里面包含cats发布的静态链接库
+	include\ 是对应的头文件
+
+示例参考：
+	src\  示例代码。
+
+【环境准备】
+Centos 7/RedHat7.4
+	编译器：g++ 4.8.5
+	依赖：libzmq, libuuid, libtbb
+	配置yum源：
+		[外网]请以根用户 root 运行下面命令安装依赖项：
+			cd /etc/yum.repos.d/
+			wget https://download.opensuse.org/repositories/network:messaging:zeromq:release-stable/CentOS_7/network:messaging:zeromq:release-stable.repo
+		[公司内网]
+			参考 http://yum.citicso.com/yumstore/ 网站添加epel和rhel源
+	安装依赖
+		yum install libzmq5
+		yum install tbb
+		yum install libuuid
+Ubuntu16
+	建议编译器：g++ 5.4.0
+	依赖：libzmq, libuuid, libtbb
+	使用以下命令安装依赖项即可：
+		sudo apt install libzmq3-dev
+		sudo apt install uuid-dev
+		sudo apt install libtbb-dev
+
+	
+【参考用法】
+示例代码参见src/main.cpp，里面包含基本的登录、下单、起算法、订阅信息等的用法样例
+编译选项参见makefile
+在准备好依赖项后，运行make rebuild即可编译示例代码，输出的可执行文件为 catsapi_demo
+
